@@ -16,6 +16,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import TimelineEvent from '@/components/TimelineEvent';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
+import CustomTabBar from '../../components/CustomTabBar';
 
 const { height } = Dimensions.get('window');
 // Adjust ITEM_SIZE to be slightly larger to ensure proper spacing
@@ -460,6 +461,9 @@ export default function TimelineScreen() {
           </Animated.View>
         )}
       </ImageBackground>
+      
+      {/* Custom Tab Bar */}
+      <CustomTabBar />
     </SafeAreaView>
   );
 }
@@ -575,7 +579,7 @@ const styles = StyleSheet.create({
   scrollViewContent: {
     flexGrow: 1,
     paddingBottom: 100,
-    paddingTop: Platform.OS === 'ios' ? 180 : 210,
+    paddingTop: Platform.OS === 'ios' ? 120 : 210,
     minHeight: height * 1.5,
   },
   timeline: {

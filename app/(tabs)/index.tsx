@@ -14,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Feather } from '@expo/vector-icons';
 import { Link } from 'expo-router';
+import CustomTabBar from '../../components/CustomTabBar';
 
 const { width, height } = Dimensions.get('window');
 
@@ -311,6 +312,9 @@ export default function HomeScreen() {
           </View>
         </Animated.View>
       </ScrollView>
+      
+      {/* Custom Tab Bar */}
+      <CustomTabBar />
     </SafeAreaView>
   );
 }

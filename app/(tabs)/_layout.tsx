@@ -2,6 +2,7 @@ import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 import { Colors } from '@/constants/Colors';
 
@@ -15,18 +16,26 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
+function FA5Icon(props: {
+  name: React.ComponentProps<typeof FontAwesome5>['name'];
+  color: string;
+}) {
+  return <FontAwesome5 size={24} style={{ marginBottom: -3 }} {...props} />;
+}
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#333333',
+        tabBarActiveTintColor: '#000000',
         tabBarInactiveTintColor: '#999999',
         tabBarStyle: { 
           display: 'none',
         },
         headerShown: false,
+        tabBarShowLabel: false,
       }}>
       <Tabs.Screen
         name="index"
@@ -43,10 +52,24 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="ai-chat"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <TabBarIcon name="compass" color={color} />,
+          title: 'AI Chat',
+          tabBarIcon: ({ color }) => <FA5Icon name="comment-alt" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="topics"
+        options={{
+          title: 'Topics',
+          tabBarIcon: ({ color }) => <FA5Icon name="book-open" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="map"
+        options={{
+          title: 'Map',
+          tabBarIcon: ({ color }) => <FA5Icon name="map-marked-alt" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -54,6 +77,14 @@ export default function TabLayout() {
         options={{
           title: 'Settings',
           tabBarIcon: ({ color }) => <TabBarIcon name="cog" color={color} />,
+        }}
+      />
+      
+      {/* Keep the explore tab but hide it from the tab bar */}
+      <Tabs.Screen
+        name="explore"
+        options={{
+          href: null, // This makes the tab not directly accessible
         }}
       />
     </Tabs>

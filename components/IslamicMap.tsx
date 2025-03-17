@@ -525,12 +525,12 @@ const IslamicMap: React.FC<IslamicMapProps> = ({ onEventSelect, selectedEvent, m
       )}
       
       {/* Map Title */}
-      <View style={styles.mapTitleContainer}>
+      {/* <View style={styles.mapTitleContainer}>
         <BlurView intensity={90} tint="light" style={styles.mapTitleBlur}>
           <Text style={styles.mapTitle}>Islamic Historical Events</Text>
           <Text style={styles.mapSubtitle}>Explore the geography of Islamic history</Text>
         </BlurView>
-      </View>
+      </View> */}
     </View>
   );
 };
@@ -568,7 +568,8 @@ const styles = StyleSheet.create({
   },
   categoryFilterContainer: {
     position: 'absolute',
-    top: Platform.OS === 'ios' ? 100 : 120,
+    bottom: Platform.OS === 'ios' ? 60 : 280,
+
     left: 0,
     right: 0,
     alignItems: 'center',
@@ -588,6 +589,7 @@ const styles = StyleSheet.create({
   categoryFilterScroll: {
     paddingHorizontal: 10,
     paddingVertical: 10,
+
   },
   categoryButton: {
     flexDirection: 'row',

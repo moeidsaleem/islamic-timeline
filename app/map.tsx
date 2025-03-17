@@ -6,7 +6,7 @@ import { router } from 'expo-router';
 export default function MapScreen() {
   useEffect(() => {
     // Redirect to the tabs version with map tab selected
-    router.replace('/(tabs)/explore');
+    router.replace('/(tabs)/explore?tab=map');
   }, []);
 
   return (

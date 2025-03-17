@@ -179,7 +179,7 @@ export default function RootLayout() {
         {/* Bottom navigation indicator */}
         <BottomIndicator style={{ bottom: insets.bottom + 10 }} />
       </Animated.View>
-      <StatusBar style="dark" />
+      {/* <StatusBar style="dark" /> */}
     </Drawer>
   );
 }
